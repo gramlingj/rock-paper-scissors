@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Page Title</title>
+</head>
+
+  <script>
+    function getPlayerChoice(){
+      let playerChoice= prompt('Rock, paper, or scissors?')
+      playerSelection= playerChoice.toLowerCase()
+      return playerSelection 
+
+    }
+    function getComputerChoice() {
+      numChoice = Math.random();
+      computerSelection='';
+      if (numChoice < .34) {
+        computerSelection = 'rock';
+      }
+      else if (numChoice <= .67) {
+        computerSelection = 'paper';
+      }
+      else {
+        computerSelection = 'scissors';
+      }
+      return computerSelection
+    }
+
+    function playRound(playerSelection, computerSelection) {
+      
+      if (playerSelection === 'rock' && computerSelection === 'scissors') {
+        console.log('Congrats! Rock beats scissors!You win!')
+        beatComputer=1 
+      }
+      else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+       console.log('Sorry! Scissors is beaten by rock! You lose!')
+       beautComputer = -1
+      }
+      else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+       console.log('Congrats, scissors beats paper!')
+       beatComputer=1
+      }
+      else if(playerSelection==='paper'&& computerSelection ==='scissors'){
+       console.log('Sorry, scissors beats paper!')
+       beatComputer=-1 
+      }
+      else if (playerSelection === 'rock' && computerSelection === 'paper') {
+        console.log('Sorry,paper beats rocks')
+        beatComputer=-1
+      }
+      else if(playerSelection === 'paper' && computerSelection=== 'rock'){
+        console.log('Congrats,paper beats rock!')
+        beatComputer=1
+      }
+      else{
+        console.log('It is a tie!')
+        beatComputer= 0
+      }
+      return beatComputer
+    }  
+    function game() {
+      yourScore=0
+      computerScore=0
+      for (let i = 0; i < 5; i++) {
+        playerSelection= getPlayerChoice()
+        computerSelection=getComputerChoice()
+        playRound(playerSelection,computerSelection)
+        console.log(playerSelection)
+        if (beatComputer>0){
+          beatYou=-1
+        }
+        else if(beatComputer<0){
+          beatYou=1
+        }
+        else{
+          beatYou=0
+        }
+        yourScore+=beatComputer
+        computerScore+=beatYou 
+      } 
+      if(yourScore>computerScore)
+      {
+        result='Congrats! You beat the computer! You win!'
+      } 
+      else if (yourScore<computerScore) {
+        result='Sorry, computer beat you! You lose!'
+      }
+      else{
+        result= "You and the computer tied!!"
+      }
+      return result
+     }
+     
+
+    console.log(game())
+  </script>
+
+</body>
+
+</html>
