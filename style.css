@@ -1,0 +1,12 @@
+.title{
+    font-size:4rem;
+}
+.rock,.paper,.scissor{
+    background-color:whitesmoke;
+    border-color: white;
+}
+*{
+
+    padding: 0;
+    background-color: darkgreen;
+} 
